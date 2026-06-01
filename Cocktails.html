@@ -1,0 +1,1357 @@
+<style>body { margin: 0; font-family: Arial, sans-serif; background: #f9f9f9; }
+    #container { display: flex; flex-direction: column; height: 100vh; }
+    #header { background: #0067b8; color: #fff; text-align: center; padding: 20px 0; font-size: 2em; letter-spacing: 1px; }
+    #content { flex: 1; display: flex; height: 100%; }
+    #sidebar {
+      width: 260px;
+      background: #e6e6fa;
+      border-right: 1px solid #ccc;
+      padding: 28px 14px;
+      overflow-y: auto;
+      min-width: 200px;
+    }
+    #sidebar ul { padding-left: 0; list-style: none; }
+    #sidebar li { margin: 16px 4px; }
+    #sidebar a { color: #0067b8; text-decoration: none; font-weight: bold; font-size: 1.1em; }
+    #sidebar a:hover { text-decoration: underline; }
+    #main {
+      flex: 1;
+      padding: 28px 36px;
+      overflow-y: auto;
+      background: #f9f9f9;
+    }
+    h2 { color: #4e2987; margin-top: 2em;}
+    .recipe-link { margin-bottom: 10px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 2em; table-layout: fixed;}
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; vertical-align: top;}
+    th { background: #e6e6fa; }
+    td.img-cell { text-align: center; vertical-align: middle; font-size: 1.1em; }
+    .img-placeholder { width: 100%; height: 180px; background: #ddd; color: #888; display: flex; align-items: center; justify-content: center;}
+    @media (max-width: 700px) {
+      #container { flex-direction: column; }
+      #sidebar { width: 100%; min-width: unset; border-right: none; border-bottom: 1px solid #ccc;}
+      #main { padding: 20px; }
+    }</style>
+<div id="container">
+  <div id="header">Cocktails Recipes</div>
+  <div id="content">
+    <nav id="sidebar">
+      <ol>
+        <li>
+          <a href="#laguna-azul">Laguna Azul</a>
+        </li>
+        <li>
+          <a href="#durazno-punch">Durazno Punch</a>
+        </li>
+        <li>
+          <a href="#john-daly">John Daly</a>
+        </li>
+        <li>
+          <a href="#appletini">Appletini</a>
+        </li>
+        <li>
+          <a href="#cranberry-spritzer">Cranberry Spritzer</a>
+        </li>
+        <li>
+          <a href="#cosmopolitan">Cosmopolitan</a>
+        </li>
+        <li>
+          <a href="#vodka-beer">Vodka Beer</a>
+        </li>
+        <li>
+          <a href="#blue-curacao-lemonade">Blue Curacao Lemonade</a>
+        </li>
+        <li>
+          <a href="#vodka-cranberry">Vodka Cranberry</a>
+        </li>
+        <li>
+          <a href="#vodka-sour">Vodka Sour</a>
+        </li>
+        <li>
+          <a href="#dirty-shirley-temple">Dirty Shirley Temple</a>
+        </li>
+        <li>
+          <a href="#aloha-screwdriver">Aloha Screwdriver</a>
+        </li>
+        <li>
+          <a href="#madras-cocktail">Madras Cocktail</a>
+        </li>
+        <li>
+          <a href="#vodka-sunrise">Vodka Sunrise</a>
+        </li>
+        <li>
+          <a href="#vodka-cranberry-fizz">Vodka Cranberry Fizz</a>
+        </li>
+        <li>
+          <a href="#b52">B52</a>
+        </li>
+        <li>
+          <a href="#kamikaze-shot">Kamikaze Shota</a>
+        </li>
+        <li>
+          <a href="#screaming-orgasm">Screaming Orgasm</a>
+        </li>
+        <li>
+          <a href="#tequila-sunrise-shot">Tequila Sunrise Shot</a>
+        </li>
+        <li>
+          <a href="#machu-picchu">Machu Picchu</a>
+        </li>
+        <li>
+          <a href="#molotov">Molotov</a>
+        </li>
+        <li>
+          <a href="#barbados-surprise">Barbados Surprise</a>
+        </li>
+        <li>
+          <a href="#cielo-infierno">Cielo e Infierno</a>
+        </li>
+        <li>
+          <a href="#jack-rose">Jack Rose</a>
+        </li>
+        <li>
+          <a href="#espresso-martini">Espresso Martini</a>
+        </li>
+        <li>
+          <a href="#rainbow-cocktail">Rainbow Cocktail 1</a>
+        </li>
+        <li>
+          <a href="#rainbow-cocktail 2">Rainbow Cocktail 2</a>
+        </li>
+        <li>
+          <a href="#rainbow-cocktail 3">Rainbow Cocktail 3</a>
+        </li>
+        <li>
+          <a href="#amor-celestial">Amor Celestial</a>
+        </li>
+        <li>
+          <a href="#doble-diamante">Cóctel Doble Diamante</a>
+        </li>
+        <li>
+          <a href="#Layer Cocktail">Layer Cocktail</a>
+        </li>
+        <li>
+          <a href="#Godfather">The Godfather / El padrino</a>
+        </li>
+        <li>
+          <a href="#Licor43">Beer Licor 43</a>
+        </li>
+        <li>
+          <a href="#Margarita">Margarita</a>
+        </li>
+        <li>
+          <a href="#MargaritaPasion">Margarita Pasion</a>
+        </li>
+        <li>
+          <a href="#sexonthebeaxh">Sex on the beach</a>
+        </li>
+        <li>
+          <a href="#BlueHawaii">Blue Hawaii</a>
+        </li>
+        <li>
+          <a href="#BlueHawaiian">Blue Hawaiian</a>
+        </li>
+      </ol>
+    </nav>
+    <main id="main"><!-- Laguna Azul -->
+      <h2 id="laguna-azul">Laguna Azul</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=TUQ5co2pf90" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>45ml jugo de limón amarillo 
+              <br>45ml vodka 
+              <br>120ml limonada 
+              <br>30ml curaçao azul 
+              <br>Rodaja de limón y cereza (decoración)
+            </td>
+            <td>Agregar jugo de limón al vaso. 
+              <br>Añadir vodka y mezclar. 
+              <br>Servir limonada fría. 
+              <br>Verter curaçao azul cuidadosamente para color. 
+              <br>Decorar con rodaja de limón y cereza.
+            </td>
+            <td class="img-cell" rowspan="5">
+              <img src="https://share1.cloudhq-mkt3.net/14b780e8085898.png" alt="" width="131" height="214">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Durazno Punch -->
+      <h2 id="durazno-punch">Durazno Punch</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=TUQ5co2pf90" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>30ml vodka 
+              <br>45ml licor de durazno 
+              <br>90ml jugo de piña 
+              <br>Una pizca de granadina 
+              <br>Cereza (decoración)
+            </td>
+            <td>Servir vodka en el vaso. 
+              <br>Añadir licor de durazno. 
+              <br>Agregar jugo de piña. 
+              <br>Agregar la granadina y decorar con cereza. 
+              <br>Presentar con cereza.
+            </td>
+            <td class="img-cell" rowspan="5">
+              <img src="https://share1.cloudhq-mkt3.net/29a11925146f66.png" alt="" width="130" height="190">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- John Daly -->
+      <h2 id="john-daly">John Daly</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=TUQ5co2pf90" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>45ml vodka 
+              <br>90ml limonada 
+              <br>90ml té frío 
+              <br>Limón amarillo (decorac 
+              <br>ión)
+            </td>
+            <td>Servir vodka en el vaso con hielo. 
+              <br>Añadir limonada y mezclar. 
+              <br>Agregar té frío. Decorar con limón. 
+              <br>Decorar con rodaja de limón.
+            </td>
+            <td class="img-cell" rowspan="5">
+              <img style="color: #888888; font-size: 14.3px;" src="https://share1.cloudhq-mkt3.net/869a19d4428454.png" alt="" width="130" height="210">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Appletini -->
+      <h2 id="appletini">Appletini</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=TUQ5co2pf90" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>30ml vodka 
+              <br>45ml jugo de manzana 
+              <br>5ml jugo de limón amarillo 
+              <br>30ml licor de manzana 
+              <br>Manzana (decoración)
+            </td>
+            <td>Servir vodka en el shaker con hielo. 
+              <br>Añadir jugo de manzana. 
+              <br>Agregar jugo de limón y licor de manzana. 
+              <br>Agitar y servir en copa fría. 
+              <br>Decorar con rodaja de manzana.
+            </td>
+            <td class="img-cell" rowspan="5">
+              <img src="https://share1.cloudhq-mkt3.net/a0df76f49d561b.png" alt="" width="131" height="163">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Cranberry Spritzer -->
+      <h2 id="cranberry-spritzer">Cranberry Spritzer</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=TUQ5co2pf90" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>60ml vodka 
+              <br>90oz jugo de arándano rojo 
+              <br>15ml jugo de limón 
+              <br>Refresco lima limón (a rellenar) 
+              <br>Arándanos rojos (decoración)
+            </td>
+            <td>Agregar vodka en vaso alto con hielo. 
+              <br>Añadir jugo de arándano. 
+              <br>Verter jugo de limón. 
+              <br>Reforzar con refresco lima/limón. 
+              <br>Decorar con arándanos.
+            </td>
+            <td class="img-cell" rowspan="5">
+              <img src="https://share1.cloudhq-mkt3.net/25eef4b919f7d9.png" alt="" width="131" height="254">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Cosmopolitan -->
+      <h2 id="cosmopolitan">Cosmopolitan</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=SBeMAw6zDgo" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>30ml vodka 
+              <br>30ml Cointreau 
+              <br>60ml jugo de arándano 
+              <br>30ml jugo de lima fresca
+            </td>
+            <td>Colocar los ingredientes en una coctelera con hielo. 
+              <br>Batir bien. 
+              <br>Servir/filtrar en copa y decorar con cáscara de naranja.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/4e50c58d9de058.png" alt="" width="100" height="127">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Vodka Beer -->
+      <h2 id="vodka-beer">Vodka Beer</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=SBeMAw6zDgo" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>Un shot de vodka 45ml 
+              <br>Cerveza tipo Stella
+            </td>
+            <td>Servir el shot de vodka en un vaso. 
+              <br>Rellenar con cerveza Stella. 
+              <br>Mezclar suavemente y servir frío.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/bb7229b880480c.png" alt="" width="130" height="240"> 
+              <br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Blue Curacao Lemonade -->
+      <h2 id="blue-curacao-lemonade">Blue Curacao Lemonade</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=SBeMAw6zDgo" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>30ml Blue Curaçao 
+              <br>20ml vodka 
+              <br>Refresco de limón
+            </td>
+            <td>En un vaso con hielo, verter el Blue Curaçao y el vodka. 
+              <br>Completar con refresco de limón. 
+              <br>Servir bien frío.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/4149b3dc8ac7cf.png" alt="" width="112" height="291">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Vodka Cranberry -->
+      <h2 id="vodka-cranberry">Vodka Cranberry</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=SBeMAw6zDgo" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>60ml vodka 
+              <br>Jugo de arándano 
+              <br>Rodaja de naranja (decoración)
+            </td>
+            <td>Llenar un vaso con hielo. 
+              <br>Añadir el vodka. 
+              <br>Completar con jugo de arándano. 
+              <br>Decorar con una rodaja de naranja.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/b452767beb29ed.png" alt="" width="130" height="228">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Vodka Sour -->
+      <h2 id="vodka-sour">Vodka Sour</h2>
+      <p class="recipe-link">Watch recipe video</p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>60ml vodka 
+              <br>30ml jugo de lima fresca 
+              <br>30ml jarabe de azúcar
+            </td>
+            <td>Colocar los ingredientes en una coctelera con hielo. 
+              <br>Agitar bien. 
+              <br>Servir en un vaso y decorar con una rodaja de limón.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/12cde22da9af0c.jpeg" alt="" width="130" height="223">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Dirty Shirley Temple -->
+      <h2 id="dirty-shirley-temple">Dirty Shirley Temple</h2>
+      <p class="recipe-link">Watch recipe video</p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>45ml vodka 
+              <br>Lemon lime soda (rellenar) 
+              <br>Un chorrito de granadina 
+              <br>Cerezas (decoración)
+            </td>
+            <td>Añadir hielo al vaso. 
+              <br>Verter vodka. 
+              <br>Completar con soda lima-limón. 
+              <br>Agregar chorrito de granadina. 
+              <br>Decorar con cerezas.
+            </td>
+            <td class="img-cell" rowspan="5">
+              <img src="https://share1.cloudhq-mkt3.net/25aa27701383d3.jpeg" alt="" width="130" height="173">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Aloha Screwdriver -->
+      <h2 id="aloha-screwdriver">Aloha Screwdriver</h2>
+      <p class="recipe-link">Watch recipe video</p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>45ml vodka 
+              <br>60ml jugo de naranja 
+              <br>60ml jugo de piña 
+              <br>Rodaja de piña (decoración)
+            </td>
+            <td>Añadir hielo al vaso. 
+              <br>Verter vodka, jugo de naranja y piña. 
+              <br>Agitar. 
+              <br>Servir. 
+              <br>Decorar con rodaja de piña.
+            </td>
+            <td class="img-cell" rowspan="5">
+              <img src="https://share1.cloudhq-mkt3.net/6199f7c2ef5935.jpeg" alt="" width="130" height="173">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Madras Cocktail -->
+      <h2 id="madras-cocktail">8. Madras Cocktail</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=iP2dOvol9xc" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>60ml vodka 
+              <br>30ml jugo de naranja 
+              <br>120ml jugo de arándano 
+              <br>Rodaja de limón (decoración)
+            </td>
+            <td>Añadir hielo al vaso. 
+              <br>Verter vodka, jugo de naranja y arándano. 
+              <br>Mezclar suavemente. 
+              <br>Decorar con rodaja de limón.
+            </td>
+            <td class="img-cell" rowspan="5">
+              <img src="https://share1.cloudhq-mkt3.net/61872497c39d72.png" alt="" width="144" height="227">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Vodka Sunrise -->
+      <h2 id="vodka-sunrise">Vodka Sunrise</h2>
+      <p class="recipe-link">Watch recipe video</p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>60ml vodka 
+              <br>147ml jugo de naranja 
+              <br>30ml granadina 
+              <br>Rodaja de naranja y cerezas (decoración)
+            </td>
+            <td>Añadir hielo al vaso. 
+              <br>Verter vodka y jugo de naranja. 
+              <br>Agregar la granadina lentamente para efecto degradado. 
+              <br>Decorar con rodaja de naranja y cereza.
+            </td>
+            <td class="img-cell" rowspan="5">
+              <img src="https://share1.cloudhq-mkt3.net/34430d2392fa0b.jpeg" alt="" width="130" height="162">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Vodka Cranberry Fizz -->
+      <h2 id="vodka-cranberry-fizz">Vodka Cranberry Fizz</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=TUQ5co2pf90" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>45ml vodka 
+              <br>90ml jugo de arándano 
+              <br>45ml agua mineral 
+              <br>Rodaja de limón (decoración)
+            </td>
+            <td>Añadir hielo al vaso. 
+              <br>Verter vodka y jugo de arándano. 
+              <br>Agregar agua mineral. 
+              <br>Mezclar. 
+              <br>Decorar con rodaja de limón.
+            </td>
+            <td class="img-cell" rowspan="5">
+              <img src="https://share1.cloudhq-mkt3.net/fdb183bbdecd4c.jpeg" alt="" width="130" height="195">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- B52 -->
+      <h2 id="b52">B52</h2>
+      <p class="recipe-link">Watch recipe video</p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>10ml licor de café 
+              <br>10ml licor de crema (Baileys) 
+              <br>10ml licor de naranja (triple sec)
+            </td>
+            <td>Servir el licor de café en la base. 
+              <br>Muy lentamente agregar el licor de crema usando una cuchara para mantener la capa. 
+              <br>Terminar con el licor de naranja, formando tres capas.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/9a0d8aa1cb4980.jpeg" alt="" width="130" height="195">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Kamikaze Shot -->
+      <h2 id="kamikaze-shot">Kamikaze Shot</h2>
+      <p class="recipe-link">Watch recipe video</p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>15ml vodka 
+              <br>15ml triple sec 
+              <br>15ml jugo de limón
+            </td>
+            <td>Colocar hielo en el shaker. 
+              <br>Verter vodka, triple sec y jugo de limón. 
+              <br>Agitar y servir en vasos pequeños.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/57fd6a017d7850.png" alt="" width="130" height="168">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Screaming Orgasm -->
+      <h2 id="screaming-orgasm">Screaming Orgasm</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=tiZSAZkxyx8&amp;list=PL97EaQohNHbkIFJMKQjidVuWva-K_GaOa&amp;index=67" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>10ml licor de café 
+              <br>10ml licor de crema (Baileys) 
+              <br>10ml amaretto 
+              <br>10ml vodka
+            </td>
+            <td>Llenar el vaso con hielo. 
+              <br>Agregar todos los ingredientes al shaker. 
+              <br>Agitar, colar y servir en el shot.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/b5b939eee02010.png" alt="" width="134" height="132">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Tequila Sunrise Shot -->
+      <h2 id="tequila-sunrise-shot">Tequila Sunrise Shot</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=wnoVOB1ha18" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>15ml tequila 
+              <br>15ml jugo de naranja 
+              <br>10ml granadina
+            </td>
+            <td>Servir tequila y jugo de naranja en el vaso. 
+              <br>Lentamente agregar la granadina para crear el efecto sunrise.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/dcf2591e59738f.png" alt="" width="130" height="208">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Machu Picchu -->
+      <h2 id="machu-picchu">Machu Picchu</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=8pj2NPydHpc" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>30-45ml granadina 
+              <br>Hielo entero y picado 
+              <br>90ml jugo de naranja 
+              <br>30ml pisco 
+              <br>15ml licor de menta
+            </td>
+            <td>Servir granadina en el vaso. 
+              <br>Añadir hielo entero. 
+              <br>Verter jugo de naranja cuidadosamente. 
+              <br>Agregar pisco. 
+              <br>Agregar licor de menta. 
+              <br>Rellenar con hielo picado.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/4c80a9044e0006.png" alt="" width="130" height="265">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Molotov -->
+      <h2 id="molotov">Molotov</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=8pj2NPydHpc" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>30ml granadina 
+              <br>30ml blue curazao 
+              <br>Hielo picado 
+              <br>Jugo de naranja 
+              <br>30ml vodka 
+              <br>Frutillas/Fresas 
+              <br>30ml ron
+            </td>
+            <td>Servir granadina en el vaso. 
+              <br>Agregar hielo picado. 
+              <br>Verter jugo de naranja. 
+              <br>Añadir blue curazao. 
+              <br>Agregar vodka. 
+              <br>Decorar con frutillas/fresas. 
+              <br>Terminar con ron.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/80dcd75a93fe6a.png" alt="" width="130" height="262">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Barbados Surprise -->
+      <h2 id="barbados-surprise">Barbados Surprise</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=8pj2NPydHpc" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>30-60ml granadina 
+              <br>Hielo 
+              <br>90-120ml jugo de naranja 
+              <br>45ml ron blanco 
+              <br>30ml blue curazao 
+              <br>Hielo picado
+            </td>
+            <td>Añadir granadina en el vaso. 
+              <br>Agregar hielo. 
+              <br>Verter jugo de naranja. 
+              <br>Añadir ron blanco. 
+              <br>Agregar blue curazao. 
+              <br>Rellenar con hielo picado.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/8ae277d9fd6153.png" alt="" width="120" height="378">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Cielo e Infierno -->
+      <h2 id="cielo-infierno">Cielo e Infierno</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=8pj2NPydHpc" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>
+              <strong>Infierno:</strong> 
+              <br>15ml grappa 
+              <br>15ml licor de café 
+              <br>15ml almíbar simple 
+              <br>
+              <strong>Cielo:</strong> 
+              <br>15ml licor de coco (puede ser blue curazao) 
+              <br>15ml vodka 
+              <br>Hielo especial
+            </td>
+            <td>Para Infierno: Mezclar los ingredientes y servir. 
+              <br>Para Cielo: Mezclar blue curazao (o licor de coco) con vodka y servir con hielo especial. 
+              <br>Presentar juntos.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/03b6c08d02711e.png" alt="" width="130" height="340">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Jack Rose -->
+      <h2 id="jack-rose">Jack Rose</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=LqcIQ3wpb7A" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>45ml brandy 
+              <br>15ml jugo de lima 
+              <br>15ml granadina
+            </td>
+            <td>Coloca todos los ingredientes en una coctelera con hielo. 
+              <br>Agita bien. 
+              <br>Cuela en una copa. 
+              <br>Decora con una rodaja de lima o cereza si lo deseas.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/da494385f69358.png" alt="" width="130" height="142">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Espresso Martini -->
+      <h2 id="espresso-martini">Espresso Martini</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=t1xnt2LUvqo" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>45ml vodka 
+              <br>30ml licor de café 
+              <br>30ml café espresso recién hecho 
+              <br>Opcional: 10ml jarabe de azúcar
+            </td>
+            <td>Colocar todos los ingredientes en un shaker con hielo. 
+              <br>Agitar vigorosamente. 
+              <br>Colar en una copa Martini fría. 
+              <br>Decorar con 3 granos de café.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/9edbe1f6d7fa3b.png" alt="" width="130" height="152">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Rainbow Cocktail -->
+      <h2 id="rainbow-cocktail">Rainbow Cocktail</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=tWdc5byKOYQ" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>30ml granadina 
+              <br>60ml jugo de naranja 
+              <br>45ml vodka 
+              <br>15ml Blue Curaçao 
+              <br>Hielo en cubos
+            </td>
+            <td>Llenar el vaso con hielo. 
+              <br>Agregar la granadina. 
+              <br>Verter cuidadosamente el jugo de naranja para crear la segunda capa. 
+              <br>Añadir vodka lentamente para la tercera capa. 
+              <br>Terminar con el Blue Curaçao vertido suavemente para formar la última capa. 
+              <br>Servir sin mezclar para mantener el efecto arcoíris.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/7b92b4924ffa7f.png" alt="" width="130" height="328">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Amor Celestial -->
+      <h2 id="rainbow-cocktail 2">Rainbow Cocktail 2</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=tWdc5byKOYQ" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>60ml jugo de naranja 
+              <br>45ml Ron Bacardi 
+              <br>45ml Red Bull 
+              <br>30ml Blue Curaçao 
+              <br>Hielo en cubos
+            </td>
+            <td>Llenar el vaso con hielo. 
+              <br>Verter cuidadosamente el jugo de naranja para&nbsp; 
+              <br>Añadir Ron y Red Bull 
+              <br>Terminar con el Blue Curaçao vertido suavemente para formar la última capa. 
+              <br>Servir sin mezclar para mantener el efecto arcoíris.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/964af54a2cc138.png" alt="" width="133" height="315"> 
+              <br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="rainbow-cocktail 3">Rainbow Cocktail 3</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=tWdc5byKOYQ" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>30ml Blue Curaçao 
+              <br>90 ml 7up/Sprite 
+              <br>45ml jugo de naranja 
+              <br>30ml Vodka 
+              <br>Hielo en cubos
+            </td>
+            <td>Llenar el vaso con hielo. 
+              <br>Verter Blue Curacao 
+              <br>LLenar 3/4 del vaso con 7up 
+              <br>En una jarra aparte agregar jugo de naranja, luego agregar el vodka y mezclar 
+              <br>Verter cuidadosamente el jugo de naranja / vodka para formar la última capa. 
+              <br>Servir sin mezclar para mantener el efecto arcoíris.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/51b4a7733e986e.png" alt="" width="130" height="349"> 
+              <br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="amor-celestial">
+        <br>Amor Celestial
+      </h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=F1yIjZfUJjs" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>200ml jugo de piña 
+              <br>100ml leche condensada 
+              <br>30ml curaçao azul 
+              <br>60ml vodka
+            </td>
+            <td>
+              <ol>
+                <li>
+                  <strong>Mezcla base de piña y leche condensada:</strong>&nbsp;En una jarra o vaso, añade 200 ml de jugo de piña y 100 ml de leche condensada. Mezcla bien hasta que se integren completamente. Reserva esta mezcla.
+                </li>
+                <li>
+                  <strong>Mezcla de vodka y curaçao:</strong>&nbsp;En otro vaso, vierte 60 ml de vodka y 30 ml de curaçao azul. Mezcla ligeramente y reserva.
+                </li>
+                <li>
+                  <strong>Montaje del cóctel:</strong>&nbsp;En un vaso para servir, añade hielo. Primero, vierte la mezcla de vodka y curaçao, dejando un poco de espacio en la parte superior del vaso.
+                </li>
+                <li>
+                  <strong>Capa final:</strong>&nbsp;Con cuidado, vierte la mezcla de jugo de piña y leche condensada sobre la capa de vodka y curaçao. Esto creará un efecto visual de capas.
+                </li>
+                <li>
+                  <strong>Decoración:</strong>&nbsp;Finalmente, decora el cóctel con algo a tu gusto, como una flor.
+                </li>
+              </ol>
+            </td>
+            <td class="img-cell" style="vertical-align: top;">
+              <img src="https://share1.cloudhq-mkt3.net/f5153b16f0ab1d.png" alt="" width="130" height="289">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- Cóctel Doble Diamante -->
+      <h2 id="doble-diamante">Cóctel Doble Diamante</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=hKgIqkx_UAM" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>45ml vodka 
+              <br>60ml jugo de piña 
+              <br>30ml curazao azul 
+              <br>Refresco lima-limón
+            </td>
+            <td>Usar vaso corto con hielo. 
+              <br>Agregar el vodka, jugo de piña y curazao azul. 
+              <br>Rellenar con refresco lima-limón. 
+              <br>Mezclar suavemente.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/3b51b99765d7df.png" alt="" width="139" height="157">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="Layer Cocktail">Layer Cocktail</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=hKgIqkx_UAM" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>Jugo de Mango o Naranja 
+              <br>Hielo 
+              <br>7 up / Sprite 
+              <br>30/45ml Vodka 
+              <br>30/45ml Blue Curazao 
+              <br>
+              <br>
+            </td>
+            <td>Usar vaso largo con hielo. 
+              <br>Agregar jugo de mango (1/3), despues hielo 
+              <br>Agregar 7up (1/3) 
+              <br>Mezclar el vodka con el blue curazao y servir lentamente.
+            </td>
+            <td class="img-cell">
+              <img src="https://share1.cloudhq-mkt3.net/dcbddbb022375d.png" alt="" width="130" height="325">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="Godfather">Cóctel The Godfather / El padrino</h2>
+      <p class="recipe-link">
+        <a href="https://youtu.be/l3Wga0g6Qv4?si=mG0aLFS-zbBue9yJ" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>45ml vodka 
+              <br>60ml jugo de piña 
+              <br>30ml curazao azul 
+              <br>Refresco lima-limón
+            </td>
+            <td>
+              <p>Para preparar el cóctel "El Padrino", sigue estos pasos:</p>
+              <ol>
+                <li>
+                  <strong>Ahumar el vaso:</strong>&nbsp;Enciende un trozo de canela y úsalo para ahumar un vaso corto.
+                </li>
+                <li>
+                  <strong>Enfriar el vaso mezclador:</strong>&nbsp;Llena un vaso mezclador con hielo y enfría la cristalería durante 30 segundos. Desecha el exceso de agua.
+                </li>
+                <li>
+                  <strong>Añadir ingredientes:</strong>&nbsp;Vierte 60 ml (2 onzas) de tu whisky preferido y 30 ml (1 onza) de licor de amaretto en el vaso mezclador.
+                </li>
+                <li>
+                  <strong>Remover la bebida:</strong>&nbsp;Usa una cuchara de bar para remover la mezcla unas 15 a 20 vueltas.
+                </li>
+                <li>
+                  <strong>Servir:</strong>&nbsp;Añade dos cubos grandes de hielo al vaso corto ahumado, luego vierte cuidadosamente la bebida preparada.
+                </li>
+                <li>
+                  <strong>Decorar:</strong>&nbsp;Aromatiza y decora la bebida con una piel de naranja.
+                </li>
+              </ol>
+            </td>
+            <td class="img-cell" style="vertical-align: top;">
+              <img src="https://share1.cloudhq-mkt3.net/24d8c55142399b.png" alt="" width="156" height="183"> 
+              <br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="Licor43">Beer Licor 43</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=v_pdopAk3po&amp;list=PL97EaQohNHbkIFJMKQjidVuWva-K_GaOa&amp;index=16" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>• 60 ml o 2 oz Licor 43 
+              <br>• 15 ml o 1/2 oz zumo de limón. 
+              <br>• 1 Cerveza
+            </td>
+            <td>
+              <ol>
+                <li>En una copa, añade bastante hielo para refrescar la cristalería. Luego, retira el exceso de agua.</li>
+                <li>Agrega un cubito de hielo más.</li>
+                <li>Vierte 60 ml (o 2 onzas) de&nbsp; 
+                  <em>Licor 43</em>.
+                </li>
+                <li>Añade 15 ml (o media onza) de zumo de limón.</li>
+                <li>Remueve bien la mezcla para integrar los ingredientes y enfriar la bebida.</li>
+                <li>Destapa una cerveza "deer" y viértela en la copa hasta casi completarla.</li>
+                <li>Lo que sobra de la cerveza, ponlo en un recipiente, espúmalo y colócalo en la copa.</li>
+                <li>Decora el cóctel con una rodaja de limón.</li>
+              </ol>
+            </td>
+            <td class="img-cell" style="vertical-align: top;">
+              <img src="https://share1.cloudhq-mkt3.net/dca579bb6db9ae.png" alt="" width="172" height="407">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="Margarita">Cóctel Margarita</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=yf-bhTuP4Ys&amp;list=PL97EaQohNHbkIFJMKQjidVuWva-K_GaOa&amp;index=17" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>Tequila 1 1/2 oz Cointreau 3/4 oz Zumo de limon 1 oz Nectar de Agave 1/2 oz Garnish: sal con limon</td>
+            <td>
+              <ul>
+                <li>Se comienza con&nbsp; 
+                  <strong>tequila</strong>, como Herradura Silver.
+                </li>
+                <li>Luego se agrega&nbsp; 
+                  <strong>licor de naranja</strong>.
+                </li>
+                <li>Se exprime&nbsp; 
+                  <strong>limón verde</strong>&nbsp;hasta obtener una onza de zumo.
+                </li>
+                <li>Para endulzar, se añade&nbsp; 
+                  <strong>néctar de agave</strong>. Si no lo tienes, puedes usar jarabe simple o azúcar líquida.
+                </li>
+                <li>Se incorpora&nbsp; 
+                  <strong>hielo</strong>&nbsp;a la coctelera y se&nbsp; 
+                  <strong>agita</strong>.
+                </li>
+                <li>Para el borde, se frota&nbsp; 
+                  <strong>limón</strong>&nbsp;en la mitad exterior de la copa para que la&nbsp; 
+                  <strong>sal</strong>&nbsp;se adhiera. Esto permite que el cliente elija si beberlo con o sin sal.
+                </li>
+                <li>Finalmente, se&nbsp; 
+                  <strong>cuela el cóctel</strong>&nbsp;en la copa y se decora con una&nbsp; 
+                  <strong>rodaja de limón</strong>.
+                </li>
+              </ul>
+            </td>
+            <td class="img-cell" style="vertical-align: top;">
+              <img src="https://share1.cloudhq-mkt3.net/1ea42da49ad7fd.png" alt="" width="130" height="192">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="MargaritaPasion">Cóctel Margarita Pasion</h2>
+      <p class="recipe-link">
+        <a href="ttps://www.youtube.com/watch?v=yf-bhTuP4Ys&amp;list=PL97EaQohNHbkIFJMKQjidVuWva-K_GaOa&amp;index=17" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>Media&nbsp; 
+              <em>parchita</em>&nbsp;o&nbsp; 
+              <em>maracuyá</em> 
+              <br>1 onza de zumo de limón recién exprimido 
+              <br>1 onza de sirope simple 
+              <br>1 onza de licor de naranja (de tu preferencia) 
+              <br>2 onzas de tequila 
+              <br>Hielo 
+              <br>Chile en polvo o&nbsp; 
+              <em>Tajín</em> 
+              <br>Una rodaja de limón (para decorar) 
+              <br>
+            </td>
+            <td>
+              <ul>
+                <li>Corta la 
+                  <em>parchita</em>&nbsp;o&nbsp; 
+                  <em>maracuyá</em>&nbsp;por la mitad y llévala directamente a la coctelera.
+                </li>
+                <li>Agrega el zumo de limón, el sirope simple, el licor de naranja y el tequila a la coctelera.</li>
+                <li>Añade hielo a la coctelera.</li>
+                <li>Agita fuertemente durante 10 segundos.</li>
+                <li>Enfría previamente una copa de cóctel.</li>
+                <li>Con la ayuda de un limón, agrega chile en polvo o&nbsp; 
+                  <em>Tajín</em>&nbsp;solo a la mitad de la copa.
+                </li>
+                <li>Vierte directamente la bebida en la copa, haciendo un doble colado para evitar que pasen partículas de hielo.</li>
+                <li>Decora con una rodaja de limón.</li>
+              </ul>
+            </td>
+            <td class="img-cell" style="vertical-align: top;">
+              <img src="https://share1.cloudhq-mkt3.net/2ffa20430aa6f2.png" alt="" width="130" height="179">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="sexonthebeaxh">Sex on the Beach</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=_-bOIcPKPIo&amp;list=PL97EaQohNHbkIFJMKQjidVuWva-K_GaOa&amp;index=24" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 33%;">Ingredientes</th>
+            <th style="width: 33%;">Preparación</th>
+            <th style="width: 34%;">Imagen</th>
+          </tr>
+          <tr>
+            <td>Hielo 
+              <br>60 ml Vodka 
+              <br>30 ml Licor de durazno 
+              <br>60 ml Zumo de naranja 
+              <br>60 ml Jugo de arándanos
+            </td>
+            <td>Para preparar el cóctel Sex on the Beach, primero se debe poner abundante hielo en la copa. Luego, se añade vodka, seguido de licor de durazno. A continuación, se agrega zumo de naranja y jugo de arándanos. Todos los ingredientes se remueven con la ayuda de una cucharilla. Finalmente, se decora la copa con una rodaja de naranja y una cereza.</td>
+            <td class="img-cell" style="vertical-align: top;">
+              <img src="https://share1.cloudhq-mkt3.net/4f48d68219a7e6.png" alt="" width="130" height="303">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="BlueHawaiian">Blue Hawaii</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=JN-okvQYmRI" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 131.656px;">Ingredientes</th>
+            <th style="width: 127.656px;">Preparación</th>
+            <th style="width: 139.656px;">Imagen</th>
+          </tr>
+          <tr>
+            <td style="width: 131.656px;">
+              <p>- 22.5mL White Rum (0.75 oz) 
+                <br>- 22.5mL Vodka (0.75 oz) 
+                <br>- 22.5mL Blue Curacao (0.75 oz) 
+                <br>- 90mL Pineapple Juice (3 oz) 
+                <br>- 22.5mL House Sour Mix (0.75 oz)
+              </p>
+              <p>
+                <br>HOUSE SOUR MIX: 
+                <br>1 Part Fresh Lemon Juice 
+                <br>1 Part Fresh Lime Juice 
+                <br>1 Part Simple Syrup
+              </p>
+            </td>
+            <td style="width: 127.656px;">1. Combine all the ingredients into your cocktail shaker 
+              <br>2. Shake with ice 
+              <br>3. Strain into a cocktail glass with crushed ice 
+              <br>4. Garnish with a pineapple wedge, cherry and umbrella
+            </td>
+            <td class="img-cell" style="vertical-align: top; width: 139.656px;">
+              <img src="https://share1.cloudhq-mkt3.net/58460c1b59d136.jpeg" alt="" width="130" height="222"> 
+              <br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="BlueHawaii">Blue Hawaiian</h2>
+      <p class="recipe-link">
+        <a href="https://www.youtube.com/watch?v=JN-okvQYmRI" target="_blank" rel="noopener">Watch recipe video</a>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th style="width: 131.656px;">Ingredientes</th>
+            <th style="width: 127.656px;">Preparación</th>
+            <th style="width: 139.656px;">Imagen</th>
+          </tr>
+          <tr>
+            <td style="width: 131.656px;">
+              <p>- 45mL White Rum (1.5 oz) 
+                <br>- 22.5mL Blue Curacao (0.75 oz) 
+                <br>- 22.5mL Cream of Coconut (0.75 oz) 
+                <br>- 60mL Pineapple Juice (2 oz)
+              </p>
+            </td>
+            <td style="width: 127.656px;">1. Combine all the ingredients into your cocktail shaker 
+              <br>2. Shake with ice 
+              <br>3. Strain into a cocktail glass with crushed ice 
+              <br>4. Garnish with a pineapple wedge, cherry and umbrella
+            </td>
+            <td class="img-cell" style="vertical-align: top; width: 139.656px;">
+              <img src="https://share1.cloudhq-mkt3.net/a6dab11086d168.jpeg" alt="" width="130" height="186"> 
+              <br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+    </main>
+  </div>
+</div>
