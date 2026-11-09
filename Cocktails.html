@@ -1,79 +1,152 @@
 <style>
-body { margin: 0; font-family: Arial, sans-serif; background: #f9f9f9; }
-    #container { display: flex; flex-direction: column; height: 100vh; }
-    #header { background: #0067b8; color: #fff; text-align: center; padding: 20px 0; font-size: 2em; letter-spacing: 1px; }
-    #content { flex: 1; display: flex; height: 100%; }
-    #sidebar {
-      width: 260px;
-      background: #e6e6fa;
-      border-right: 1px solid #ccc;
-      padding: 28px 14px;
+  /* Estilos generales de la página */
+  body { 
+    margin: 0; 
+    font-family: Arial, sans-serif; 
+    background: #f9f9f9; 
+  }
+
+  #container { 
+    display: flex; 
+    flex-direction: column; 
+    height: 100vh; 
+  }
+
+  #header { 
+    background: #0067b8; 
+    color: #fff; 
+    text-align: center; 
+    padding: 20px 0; 
+    font-size: 2em; 
+    letter-spacing: 1px; 
+  }
+
+  #content { 
+    flex: 1; 
+    display: flex; 
+    overflow: hidden; /* Evita desbordamientos innecesarios en el layout principal */
+  }
+
+  #sidebar {
+    width: 260px;
+    background: #e6e6fa;
+    border-right: 1px solid #ccc;
+    padding: 28px 14px;
+    overflow-y: auto;
+    min-width: 200px;
+  }
+
+  #sidebar ul { 
+    padding-left: 0; 
+    list-style: none; 
+  }
+
+  #sidebar li { 
+    margin: 16px 4px; 
+  }
+
+  #sidebar a { 
+    color: #0067b8; 
+    text-decoration: none; 
+    font-weight: bold; 
+    font-size: 1.1em; 
+  }
+
+  #sidebar a:hover { 
+    text-decoration: underline; 
+  }
+
+  #main {
+    flex: 1;
+    padding: 28px 36px;
+    overflow-y: auto;
+    background: #f9f9f9;
+  }
+
+  h2 { 
+    color: #4e2987; 
+    margin-top: 2em; 
+  }
+
+  .recipe-link { 
+    margin-bottom: 10px; 
+  }
+
+  /* Formato unificado para las tablas (Optimizado y limpio) */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2em;
+    table-layout: fixed;
+  }
+
+  th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top; /* Asegura que el contenido comience arriba sin espacios extra */
+  }
+
+  th {
+    background: #e6e6fa;
+    font-weight: bold;
+  }
+
+  /* Estilos específicos para celdas de imágenes */
+  td.img-cell {
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px;
+  }
+
+  td.img-cell img {
+    display: inline-block;
+    max-width: 200px;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain;
+    vertical-align: middle;
+  }
+
+  .img-placeholder {
+    width: 100%;
+    height: 180px;
+    background: #ddd;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Listas dentro de tablas ordenadas y limpias */
+  td ul, td ol {
+    margin: 0;
+    padding-left: 24px;
+  }
+
+  td li {
+    margin: 2px 0;
+  }
+
+  /* Responsividad para móviles */
+  @media (max-width: 700px) {
+    #content {
+      flex-direction: column;
       overflow-y: auto;
-      min-width: 200px;
     }
-    #sidebar ul { padding-left: 0; list-style: none; }
-    #sidebar li { margin: 16px 4px; }
-    #sidebar a { color: #0067b8; text-decoration: none; font-weight: bold; font-size: 1.1em; }
-    #sidebar a:hover { text-decoration: underline; }
-    #main {
-      flex: 1;
-      padding: 28px 36px;
-      overflow-y: auto;
-      background: #f9f9f9;
+    #container { 
+      height: auto; 
     }
-    h2 { color: #4e2987; margin-top: 2em;}
-    .recipe-link { margin-bottom: 10px; }
-    table { width: 100%; border-collapse: collapse; margin-bottom: 2em; table-layout: fixed;}
-    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; vertical-align: top;}
-    th { background: #e6e6fa; }
-    td.img-cell { text-align: center; vertical-align: middle; font-size: 1.1em; }
-    .img-placeholder { width: 100%; height: 180px; background: #ddd; color: #888; display: flex; align-items: center; justify-content: center;}
-    @media (max-width: 700px) {
-      #container { flex-direction: column; }
-      #sidebar { width: 100%; min-width: unset; border-right: none; border-bottom: 1px solid #ccc;}
-      #main { padding: 20px; }
+    #sidebar { 
+      width: 100%; 
+      min-width: unset; 
+      border-right: none; 
+      border-bottom: 1px solid #ccc; 
     }
-/* Formato uniforme para todas las recetas */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 2em;
-  table-layout: fixed;
-}
-th, td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: left;
-  vertical-align: top;
-}
-th {
-  background: #e6e6fa;
-  font-weight: bold;
-}
-table tr:last-child td {
-  height: 180px;
-}
-td.img-cell {
-  text-align: center !important;
-  vertical-align: middle !important;
-  padding: 8px;
-}
-td.img-cell img {
-  display: inline-block;
-  width: auto !important;
-  max-width: 131px !important;
-  height: auto !important;
-  max-height: 205px !important;
-  object-fit: contain;
-  vertical-align: middle;
-}
-td ul, td ol {
-  margin: 0;
-  padding-left: 24px;
-}
-td li {
-  margin: 2px 0;
-}
+    #main { 
+      padding: 20px; 
+    }
+  }
 </style>
 <div id="container">
 <div id="header">Cocktails Recipes</div>
@@ -1412,128 +1485,75 @@ td li {
         <li><strong>C</strong><strong data-path-to-node="6,2,0" data-index-in-node="0">ompletar con soda:</strong> Rellena el resto del vaso con agua con gas o soda.</li>
         <li><strong>M</strong><strong data-path-to-node="6,3,0" data-index-in-node="0">ezclar y decorar:</strong> Remueve suavemente con una cuchara larga desde el fondo hacia arriba para integrar todos los sabores. Decora con una ramita fresca de menta y una rodaja de lima.</li>
         </ol></td>
-      <td class="img-cell"><img alt="Mojito Malibu" loading="lazy" src="https://github.com/ser446/Cocktails/blob/main/Malibu-Mojito.jpg?raw=true" /> </img></td>
+      <td class="img-cell"><img src="https://github.com/ser446/Cocktails/blob/main/Malibu-Mojito.jpg?raw=true" alt="Mojito Malibu" loading="lazy" /> </img></td>
     </tr>
   </tbody>
 </table>
 <h2 id="Caipiriña">Caipiriña, Caipiroska, Capirisima</h2>
 <p class="recipe-link"> Watch recipe video </p>
-<table class="recipe-table">
+<!-- TABLA PRINCIPAL DE LA RECETA -->
+<table class="recipe-table" style="height: auto; border-collapse: collapse;">
   <tbody>
-    <tr>
+    <tr style="height: auto;">
       <th style="width: 33%;">Ingredientes</th>
       <th style="width: 33%;">Preparación</th>
       <th style="width: 34%;">Imagen</th>
     </tr>
-    <tr>
-      <td><ul _ngcontent-ng-c3564336232="">
-        <li data-sfc-cp="" jsaction="" jscontroller="oSLmPe#HokZ0d" data-sfc-root="c" jsuid="ImAi8_37" data-hveid="CAAIFhAC" data-sae="" data-complete="true"><span data-sfc-cp="" jsaction="" jscontroller="KdQfFc#d5Qebf" data-sfc-root="c" jsuid="ImAi8_38" data-complete="true"><strong data-sfc-cp="" jsaction="" jscontroller="tP2kf#s32ZS" data-sfc-root="c" jsuid="ImAi8_39" data-complete="true">60 ml
-                <!--TgQPHd|||[]-->
-          </strong> (2 oz) de <span jsuid="ImAi8_3a" data-sfc-cp="" jsaction="" jscontroller="KMhGd#Mx1qPe" data-sfc-root="c" data-complete="true"><span jsuid="ImAi8_3b" data-sfc-cp="" jsaction="mouseenter:&amp;ImAi8_3b|ZUljYd;mouseleave:&amp;ImAi8_3b|aXD3Gb;focusin:&amp;ImAi8_3b|Mrjwi;focusout:&amp;ImAi8_3b|CXhG2e;pointerdown:&amp;ImAi8_3b|wndyDd;click:&amp;ImAi8_3b|yrMC6;" jscontroller="H5LVWd#B2zgBd" data-sfc-root="c" data-complete="true"><a jsuid="ImAi8_3c" target="_blank" rel="noopener" data-sfc-cp="" jsaction="" jscontroller="o58JZc#xR6Anb" data-sfc-root="c" data-ved="2ahUKEwjI-eipq-2XAxVWupUCHTdLDskQy_kOegYIAAgWEAM" data-hveid="CAAIFhAD" href="https://es.wikipedia.org/wiki/Cacha%C3%A7a" data-complete="true">Cachaça
-            <!--TgQPHd|||[[&quot;https://es.wikipedia.org/wiki/Cacha%C3%A7a&quot;,null,[null,null,1,null,null,null,null,null,null,[[1793761771928776,43366998,3373157175],null,null,null,null,[[0,21]]],null,null,[244939,null,2],null,null,[{&quot;1218&quot;:[16,null,null,null,[7]]}]],null,null,2,null,null,null,null,0]]-->
-            </a>
-            <!--TgQPHd|||[[[null,null,null,null,null,null,[[1793761771928776,43366998,3373157175],null,null,null,null,[[0,21]]],&quot;https://es.wikipedia.org/wiki/Cacha%C3%A7a&quot;],0,0],&quot;\u0026ImAi8_3a:u9afN&quot;,&quot;\u0026ImAi8_3a:kEV45c&quot;]-->
-            </span>
-            <!--TgQPHd|||[[&quot;https://es.wikipedia.org/wiki/Cacha%C3%A7a&quot;,null,null,[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[{&quot;1218&quot;:[16,null,null,null,[7]]}]],16,null,&quot;Cachaça&quot;,null,null,null,null,[[1793761771928776,43366998,3373157175],null,null,null,null,[[0,21]]],null,&quot;dff5d2f3-3941-4bb6-94d6-24fb906f2b92&quot;]]-->
-            </span> (por ejemplo, <em data-sfc-cp="" jsaction="" jscontroller="LFsGHb#ycPkjf" data-sfc-root="c" jsuid="ImAi8_3d" data-complete="true">51
-              <!--TgQPHd|||[]-->
-              </em> o <em data-sfc-cp="" jsaction="" jscontroller="LFsGHb#ycPkjf" data-sfc-root="c" jsuid="ImAi8_3e" data-complete="true">Velho Barreiro
-                <!--TgQPHd|||[]-->
-                </em>)
-          <!--TgQPHd|||[]-->
-          </span>
-            <!--TgQPHd|||[]-->
-          <!--TgQPHd|||[]-->
-        </li>
-        <li data-sfc-cp="" jsaction="" jscontroller="oSLmPe#HokZ0d" data-sfc-root="c" jsuid="ImAi8_3g" data-hveid="CAAIFhAE" data-complete="true" data-processed="true" data-sae=""><span data-sfc-cp="" jsaction="" jscontroller="KdQfFc#d5Qebf" data-sfc-root="c" jsuid="ImAi8_3h" data-complete="true"><strong data-sfc-cp="" jsaction="" jscontroller="tP2kf#s32ZS" data-sfc-root="c" jsuid="ImAi8_3i" data-complete="true">1 lima
-                <!--TgQPHd|||[]-->
-          </strong> mediana
-          <!--TgQPHd|||[]-->
-          </span>
-            <!--TgQPHd|||[]-->
-          <!--TgQPHd|||[]-->
-        </li>
-        <li data-sfc-cp="" jsaction="" jscontroller="oSLmPe#HokZ0d" data-sfc-root="c" jsuid="ImAi8_3k" data-hveid="CAAIFhAF" data-complete="true" data-processed="true" data-sae=""><span data-sfc-cp="" jsaction="" jscontroller="KdQfFc#d5Qebf" data-sfc-root="c" jsuid="ImAi8_3l" data-complete="true"><strong data-sfc-cp="" jsaction="" jscontroller="tP2kf#s32ZS" data-sfc-root="c" jsuid="ImAi8_3m" data-complete="true">2 cucharadas
-                <!--TgQPHd|||[]-->
-          </strong> de azúcar blanco (el azúcar moreno altera el color y sabor original, aunque se usa mucho)
-          <!--TgQPHd|||[]-->
-          </span>
-            <!--TgQPHd|||[]-->
-          <!--TgQPHd|||[]-->
-        </li>
-        <li data-sfc-cp="" jsaction="" jscontroller="oSLmPe#HokZ0d" data-sfc-root="c" jsuid="ImAi8_3o" data-hveid="CAAIFhAG" data-complete="true" data-processed="true" data-sae=""><span data-sfc-cp="" jsaction="" jscontroller="KdQfFc#d5Qebf" data-sfc-root="c" jsuid="ImAi8_3p" data-complete="true" aria-owns="action-menu-parent-container">Hielo picado o en cubos pequeños abundante</span></li>
-        </ul></td>
-      <td><ol _ngcontent-ng-c3564336232="">
-        <li data-sfc-cp="" jsaction="" jscontroller="oSLmPe#HokZ0d" data-sfc-root="c" jsuid="ImAi8_46" data-hveid="CAAIGBAB" data-complete="true" data-sae=""><span data-sfc-cp="" jsaction="" jscontroller="KdQfFc#d5Qebf" data-sfc-root="c" jsuid="ImAi8_47" data-complete="true"><strong data-sfc-cp="" jsaction="" jscontroller="tP2kf#s32ZS" data-sfc-root="c" jsuid="ImAi8_48" data-complete="true">Cortá la lima:
-                <!--TgQPHd|||[]-->
-          </strong> Lavá bien la lima. Cortale los dos extremos y partila por la mitad a lo largo. <strong data-sfc-cp="" jsaction="" jscontroller="tP2kf#s32ZS" data-sfc-root="c" jsuid="ImAi8_49" data-complete="true">Retirá la vena blanca central
-            <!--TgQPHd|||[]-->
-            </strong> de ambas mitades (esto es clave para que no se ponga amargo el trago). Luego, cortá cada mitad en 4 gajos pequeños.
-          <!--TgQPHd|||[]-->
-          </span>
-            <!--TgQPHd|||[]-->
-        </li>
-        <li data-sfc-cp="" jsaction="" jscontroller="oSLmPe#HokZ0d" data-sfc-root="c" jsuid="ImAi8_4f" data-hveid="CAAIGBAE" data-complete="true" data-sae=""><span data-sfc-cp="" jsaction="" jscontroller="KdQfFc#d5Qebf" data-sfc-root="c" jsuid="ImAi8_4g" data-complete="true"><strong data-sfc-cp="" jsaction="" jscontroller="tP2kf#s32ZS" data-sfc-root="c" jsuid="ImAi8_4h" data-complete="true">Macerá el sabor:
-                <!--TgQPHd|||[]-->
-          </strong> Colocá los gajos de lima en el fondo de un vaso corto (<em data-sfc-cp="" jsaction="" jscontroller="LFsGHb#ycPkjf" data-sfc-root="c" jsuid="ImAi8_4i" data-complete="true">Old Fashioned
-            <!--TgQPHd|||[]-->
-            </em>) con la piel hacia abajo. Añadí las dos cucharadas de azúcar. Usá un mortero para machacar firmemente, logrando que la lima libere todo su jugo y se disuelva con el azúcar.
-          <!--TgQPHd|||[]-->
-          </span>
-            <!--TgQPHd|||[]-->
-        </li>
-        <li data-sfc-cp="" jsaction="" jscontroller="oSLmPe#HokZ0d" data-sfc-root="c" jsuid="ImAi8_4o" data-hveid="CAAIGBAH" data-complete="true" data-sae=""><span data-sfc-cp="" jsaction="" jscontroller="KdQfFc#d5Qebf" data-sfc-root="c" jsuid="ImAi8_4p" data-complete="true"><strong data-sfc-cp="" jsaction="" jscontroller="tP2kf#s32ZS" data-sfc-root="c" jsuid="ImAi8_4q" data-complete="true">Refrescá:
-                <!--TgQPHd|||[]-->
-          </strong> Llená el vaso hasta el tope con hielo.
-          <!--TgQPHd|||[]-->
-          </span>
-            <!--TgQPHd|||[]-->
-        </li>
-        <li data-sfc-cp="" jsaction="" jscontroller="oSLmPe#HokZ0d" data-sfc-root="c" jsuid="ImAi8_4w" data-hveid="CAAIGBAK" data-complete="true" data-sae=""><span data-sfc-cp="" jsaction="" jscontroller="KdQfFc#d5Qebf" data-sfc-root="c" jsuid="ImAi8_4x" data-complete="true"><strong data-sfc-cp="" jsaction="" jscontroller="tP2kf#s32ZS" data-sfc-root="c" jsuid="ImAi8_4y" data-complete="true">Agregá la cachaça:
-                <!--TgQPHd|||[]-->
-          </strong> Verté los 60 ml de cachaça sobre el hielo.
-          <!--TgQPHd|||[]-->
-          </span>
-            <!--TgQPHd|||[]-->
-        </li>
-        <li data-sfc-cp="" jsaction="" jscontroller="oSLmPe#HokZ0d" data-sfc-root="c" jsuid="ImAi8_54" data-hveid="CAAIGBAN" data-complete="true" data-sae=""><span data-sfc-cp="" jsaction="" jscontroller="KdQfFc#d5Qebf" data-sfc-root="c" jsuid="ImAi8_55" data-complete="true" aria-owns="action-menu-parent-container"><strong data-sfc-cp="" jsaction="" jscontroller="tP2kf#s32ZS" data-sfc-root="c" jsuid="ImAi8_56" data-complete="true">Mezclá:
-                <!--TgQPHd|||[]-->
-        </strong> Con una cuchara de bar, remové suavemente de abajo hacia arriba para que el azúcar disuelto en el fondo se integre con el alcohol. Decorá con un gajo de lima en el borde.</span></li>
-        </ol></td>
-      <td class="img-cell"><img alt="Caipiriña" loading="lazy" src="https://github.com/ser446/Cocktails/blob/main/caipirinha-brasilena.jpg?raw=true" /> </img></td>
-    </tr>
-    <tr>
-      <td colspan="3">
-      <div>
-  <h3>Variantes populares si no tenés cachaça</h3>
-  <p>Si se te complica conseguir el destilado brasileño, podés transformar el trago cambiando la base alcohólica:</p>
-  <table border="1">
-    <tr>
-      <th><strong>Nombre del Trago</strong></th>
-      <th><strong>Alcohol Base</strong></th>
-      <th><strong>Característica</strong></th>
-    </tr>
-    <tr>
-      <td>Caipiroska</td>
-      <td>Vodka	</td>
-      <td>Más neutra, resalta puramente la lima y el azúcar</td>
-    </tr>
-    <tr>
-      <td>Caipisake</td>
-      <td>Sake</td>
-      <td>Una versión más suave, ligera y sofisticada</td>
-    </tr>
-    <tr>
-      <td>Caipirísima</td>
-      <td>Ron Blanco</td>
-      <td>Perfil caribeño, muy similar al mojito pero sin menta</td>
-    </tr>
-  </table>
-  </div>
+    <tr style="height: auto;">
+      <td style="vertical-align: top; height: auto;">
+        <ul _ngcontent-ng-c3564336232="">
+          <li><strong>60 ml</strong> (2 oz) de <a href="https://es.wikipedia.org/wiki/Cacha%C3%A7a" target="_blank">Cachaça</a> (por ejemplo, <em>51</em> o <em>Velho Barreiro</em>)</li>
+          <li><strong>1 lima</strong> mediana</li>
+          <li><strong>2 cucharadas</strong> de azúcar blanco</li>
+          <li>Hielo picado o en cubos pequeños abundante</li>
+        </ul>
       </td>
-      </tr>
+      <td style="vertical-align: top; height: auto;">
+        <ol _ngcontent-ng-c3564336232="">
+          <li><strong>Cortá la lima:</strong> Lavá bien la lima y cortá la vena blanca central.</li>
+          <li><strong>Macerá el sabor:</strong> Colocá los gajos con el azúcar y machacá.</li>
+          <li><strong>Refrescá:</strong> Llená el vaso con hielo.</li>
+          <li><strong>Agregá la cachaça:</strong> Verté los 60 ml.</li>
+          <li><strong>Mezclá:</strong> Remové suavemente de abajo hacia arriba.</li>
+        </ol>
+      </td>
+      <td class="img-cell"><img alt="Caipiriña" loading="lazy" src="https://github.com/ser446/Cocktails/blob/main/caipirinha-brasilena.jpg?raw=true"/></img></td>
+    </tr>
   </tbody>
 </table>
+
+<!-- TABLA DE VARIANTES AFUERA Y COMPACTA -->
+<div style="margin-top: 20px;">
+  <h3>Variantes populares si no tenés cachaça</h3>
+  <p>Si se te complica conseguir el destilado brasileño, podés transformar el trago cambiando la base alcohólica:</p>
+  
+  <table style="border-collapse: collapse; width: 100%; font-family: sans-serif; font-size: 14px;">
+    <thead>
+      <tr style="background-color: #eaeaf4;">
+        <th >Nombre del Trago</th>
+        <th >Alcohol Base</th>
+        <th >Característica</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td ><strong>Caipiroska</strong></td>
+        <td >Vodka</td>
+        <td >Más neutra, resalta puramente la lima y el azúcar.</td>
+      </tr>
+      <tr>
+        <td ><strong>Caipisake</strong></td>
+        <td >Sake</td>
+        <td >Una versión más suave, ligera y sofisticada.</td>
+      </tr>
+      <tr>
+        <td ><strong>Caipirísima</strong></td>
+        <td >Ron Blanco</td>
+        <td >Perfil caribeño, muy similar al mojito pero sin menta.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <h2 id="Caipiriña de Maracuya">Caipiriña de Maracuya</h2>
 <p class="recipe-link"> Watch recipe video </p>
 <table class="recipe-table">
@@ -1630,8 +1650,7 @@ td li {
               <!--TgQPHd|||[]-->
           </em> Si no conseguís la fruta fresca, podés usar <strong data-sfc-cp="" jsaction="" jscontroller="tP2kf#s32ZS" data-sfc-root="c" jsuid="wLacE_59" data-complete="true" data-processed="true">60 ml de puré o concentrado de maracuyá comprado
             <!--TgQPHd|||[]-->
-          </strong>, pero en ese caso reducí el azúcar a la mitad porque los concentrados suelen venir endulzados.</p>
-        </td>
+          </strong>, pero en ese caso reducí el azúcar a la mitad porque los concentrados suelen venir endulzados.</p>        </td>
       <td class="img-cell"><img alt="Caipi de Maracuya" loading="lazy" src="https://github.com/ser446/Cocktails/blob/main/caipirinha-maracuya.jpg?raw=true" /> </img></td>
     </tr>
   </tbody>
